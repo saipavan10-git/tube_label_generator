@@ -1,0 +1,42 @@
+{
+    "name": "ADRC Tube Label Generator",
+    "description": "Module description",
+    "namespace": "TLG\\ExternalModule",
+    "framework-version": 15,
+    "authors": [
+        {
+            "name": "University of Florida CTS-IT",
+            "email": "CTSIT-REDCAP-MODULE-SUPPO@LISTS.UFL.EDU",
+            "institution": "University of Florida - CTSI"
+        }
+    ],
+    "system-settings": [
+    ],
+    "project-settings": [
+        {
+            "key": "input_base",
+            "name": "Input base",
+            "type": "text"
+        },
+        {
+            "key": "output_base",
+            "name": "Output base",
+            "type": "text"
+        }
+    ],
+    "links": {
+        "project": [
+            {
+                "name": "Generate Labels",
+                "icon": "fas fa-flask-vial",
+                "url": "pages/label_generation.php",
+                "show-header-and-footer": true
+            }
+        ]
+    },
+    "auth-ajax-actions": ["generateTubeLabels", "getDataForDropdown"],
+    "compatibility": {
+        "redcap-version-min": "14.0.2",
+        "php-version-min": "8.0.0"
+    }
+}
