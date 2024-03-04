@@ -111,12 +111,9 @@ class ExternalModule extends AbstractExternalModule {
         foreach ($sample_definitions as $td) {
             for ($i = 1; $i < $td['count'] + 1; ++$i) {
                 $id_str = $this->encodeUnique($ptid, $visit_num, $td['symbol'], $i, output_base: $output_base);
-                $label_str =
-                    "ptid: " . $ptid . "\n" .
-                    "Type: " . $td['name']
-                ;
                 $barcode_obj = [
-                    'label' => $label_str,
+                    'ptid' => $ptid,
+                    'type' => $td['name'],
                     'barcode_str' => $id_str
                 ];
                 array_push($output_list, $barcode_obj);
