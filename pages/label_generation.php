@@ -1,6 +1,7 @@
 <?php
 $module->initializeJavascriptModuleObject();
 
+$module->includeJs("js/pdf-lib.min.js");
 $module->includeJs("js/tlg.js");
 
 ?>
