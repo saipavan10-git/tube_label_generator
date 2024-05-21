@@ -6,17 +6,19 @@ $module->includeJs("js/tlg.js");
 
 ?>
 
-<form method="GET" id="tlg_form" action="javascript:;" onsubmit="TLG.generateTubeLabels(this)" class="form">
-  <div class="input-group">
-    <label for="ptid">PTID</label>
-    <!-- <input type="text" name="ptid" id="ptid" value="100" /> -->
-    <select class="select2-container" name="ptid" id="ptid" />
+<form class="m-3" method="GET" id="tlg_form" action="javascript:;" onsubmit="TLG.generateTubeLabels(this)">
+  <h5>Print labels for:</h5>
+  <div class="mb-3">
+    <label for="ptid" class="form-label" >PTID</label>
+    <select class="form-select" name="ptid" id="ptid">
+      <option selected>Select a ptid</option>
+    </select>
   </div>
-
-<div class="form-group">
-  <label for="visit_id">Visit ID</label>
-  <input type="text" name="visit_id" id="visit_id" value="5" />
-</div>
-  <button type="submit" class="btn btn-primary mb-2">Submit</button>
-
+  <div class="mb-3>
+    <label class="form-label" for="visit_num">Visit ID</label>
+    <select class="form-select" name="visit_num" id="visit_num">
+      <option selected>Select a visit number</option>
+    </select>
+  </div>
+  <button class="btn btn-primary mt-3" type="submit">Print</button>
 </form>

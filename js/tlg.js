@@ -23,17 +23,22 @@ const TLG = ExternalModules.TLG.ExternalModule;
     });
   };
 
-  let data = {
-    ptid: 100,
-    visit_id: 5
-  };
+  TLG.ajax("getDataForPtidDropdown").then(response => {
+    response = JSON.parse(response);
 
-  TLG.ajax("getDataForDropdown").then(r => {
+    // populate the dropdown with data
     $("#ptid").select2({
-      data: r
+      data: response
     });
-    // select boxes need to be resized to display values
-    $(".select2-container").attr("style", "width: auto");
+  });
+
+  TLG.ajax("getDataForVisitDropdown").then(response => {
+    response = JSON.parse(response);
+
+    // populate the dropdown with data
+    $("#visit_num").select2({
+      data: response
+    });
   });
 })();
 

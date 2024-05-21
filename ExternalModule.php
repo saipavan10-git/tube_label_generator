@@ -14,10 +14,17 @@ class ExternalModule extends AbstractExternalModule {
 
         switch ($action) {
             case "generateTubeLabels":
-                return $this->generateLabelArray($payload['ptid'], $payload['visit_id']);
+                return $this->generateLabelArray($payload['ptid'], $payload['visit_num']);
                 break;
-            case "getDataForDropdown":
-                return $this->getDataForDropdown([1]);
+            case "getDataForPtidDropdown":
+                $ptid_field = $this->framework->getProjectSetting("ptid_field");
+                // TODO: handle null value
+                return $this->getDataForDropdown($ptid_field);
+                break;
+            case "getDataForVisitDropdown":
+                $visit_num_field = $this->framework->getProjectSetting("visit_num_field");
+                // TODO: handle null value
+                return $this->getDataForDropdown($visit_num_field);
                 break;
             default:
                 // $actions not in auth-ajax-actions throw an error
@@ -32,12 +39,12 @@ class ExternalModule extends AbstractExternalModule {
     }
 
 
-    function encodeUnique($ptid, $visit_id, $sample_symbol, $sample_num, int $ptid_pad = 6, int $visit_pad = 2, int $input_base = self::DEFAULT_INPUT_BASE, int $output_base = self::DEFAULT_OUTPUT_BASE) :string {
+    function encodeUnique($ptid, $visit_num, $sample_symbol, $sample_num, int $ptid_pad = 6, int $visit_pad = 2, int $input_base = self::DEFAULT_INPUT_BASE, int $output_base = self::DEFAULT_OUTPUT_BASE) :string {
         /* converts ptid id and visit id into $output_base,
          * creates a checksum
          * concats all
          * Potentially 17 characters total
-         * <ptid>-<visit_id>-<sample_symbol>-<sample_num>-checksum
+         * <ptid>-<visit_num>-<sample_symbol>-<sample_num>-checksum
          * 4 characters for human readability (-)
          * 6 characters for ptid; 16^6 = > 16 million ptids
          * 2 characters for visit; 16^2 = 256 visits per person
@@ -46,7 +53,7 @@ class ExternalModule extends AbstractExternalModule {
          * 1 character for checksum
          */
         $ptid_encode = str_pad(base_convert($ptid, $input_base, $output_base), $ptid_pad, '0', STR_PAD_LEFT);
-        $visit_encode = str_pad(base_convert($visit_id, $input_base, $output_base), $visit_pad, '0', STR_PAD_LEFT);
+        $visit_encode = str_pad(base_convert($visit_num, $input_base, $output_base), $visit_pad, '0', STR_PAD_LEFT);
         $label_data_arr = [$ptid_encode, $visit_encode, $sample_symbol, $sample_num];
         $check_digit = $this->generateLuhnChecksum(implode("", $label_data_arr), $output_base);
         array_push($label_data_arr, $check_digit);
@@ -124,25 +131,22 @@ class ExternalModule extends AbstractExternalModule {
     }
 
 
-    function getDataForDropdown(array $fields) {
-        //  $get_data = [
-        //      'project_id' => PROJECT_ID,
-        //      'fields' => $fields
-        //  ];
-        // $data = REDCap::getData($get_data);
+    function getDataForDropdown(string $field) {
+        // Get the field data
+        $get_data = [
+             'project_id' => PROJECT_ID,
+             'fields' => $field
+         ];
+        $data = REDCap::getData($get_data);
 
-        // HACK: provide sample data
-        $response = [
-            [
-                "id" => 110001,
-                "text" => "110001"
-            ],
-            [
-                "id" => 110002,
-                "text" => "110002"
-            ],
-        ];
+        // populate response for jquery input field
+        // the data needs to be in the format of [{id: <option_id>, text: <text_to_display>}]
+        $response = [];
+        foreach ($data as $entry) {
+            $values = array_shift($entry);
+            array_push($response,[ "id" => $values[$field], "text" => $values[$field]]);
+        }
 
-        return $response;
+        return json_encode($response);
     }
 }
