@@ -1,5 +1,5 @@
 {
-    "name": "ADRC Tube Label Generator",
+    "name": "Tube Label Generator",
     "description": "Module description",
     "namespace": "TLG\\ExternalModule",
     "framework-version": 15,
@@ -25,7 +25,7 @@
         },
         {
             "key": "ptid_field",
-            "name": "ADC Subject ID (ptid) field",
+            "name": "Subject ID (ptid) field",
             "type": "field-list",
             "required": true,
             "repeatable": false,
