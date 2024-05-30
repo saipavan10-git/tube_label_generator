@@ -33,12 +33,12 @@ N/A
 - **Subject ID field**: The field that contains the ptid.
 - **Visit number field**: The field that contains the visit number. 
 
-Then use the @TUBE_LABEL_GENERATOR action tag on the field where you the "Generate biospecimen labels" button to be displayed. Typically this woudl be the visit nunber field. The button will appear to the right of the data entry field.
+Then use the @TUBE_LABEL_GENERATOR action tag on the field where you the "Generate biospecimen labels" button to be displayed. Typically this would be the visit number field. The button will appear to the right of the data entry field. Only one @TUBE_LABEL_GENERATOR action tag is supported per form, any additional fields marked with the tag will be ignored.
 
-__TODO: Insert a screen shot of the button here__
+> ![](./img/gen_label_button.png)
 
 ## Use
 
 Access the form where the Visit Number field is set. The button should appear to the right of the visit number data entry field. The field will be grayed out if the viit number is missin. Key in the visit number then press the "Generate biospecimen labels" button. This will display the page of biospecimen labels.
 
-__TODO: Insert a screen shot of a generated sheet of labels__
+> ![](./img/gen_label_sheet.png)
