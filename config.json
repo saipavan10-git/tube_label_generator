@@ -40,16 +40,6 @@
             "autocomplete": true
         }
     ],
-    "links": {
-        "project": [
-            {
-                "name": "Generate Labels",
-                "icon": "fas fa-flask-vial",
-                "url": "pages/label_generation.php",
-                "show-header-and-footer": true
-            }
-        ]
-    },
     "auth-ajax-actions": ["generateTubeLabels", "getDataForPtidDropdown", "getDataForVisitDropdown"],
     "compatibility": {
         "redcap-version-min": "14.0.2",
