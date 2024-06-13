@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<ODM xmlns="http://www.cdisc.org/ns/odm/v1.3" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:redcap="https://projectredcap.org" xsi:schemaLocation="http://www.cdisc.org/ns/odm/v1.3 schema/odm/ODM1-3-1.xsd" ODMVersion="1.3.1" FileOID="000-00-0000" FileType="Snapshot" Description="tube label write test 2" AsOfDateTime="2024-05-23T10:52:16" CreationDateTime="2024-05-23T10:52:16" SourceSystem="REDCap" SourceSystemVersion="14.3.7">
+<ODM xmlns="http://www.cdisc.org/ns/odm/v1.3" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:redcap="https://projectredcap.org" xsi:schemaLocation="http://www.cdisc.org/ns/odm/v1.3 schema/odm/ODM1-3-1.xsd" ODMVersion="1.3.1" FileOID="000-00-0000" FileType="Snapshot" Description="tube label write test 2" AsOfDateTime="2024-06-13T09:29:27" CreationDateTime="2024-06-13T09:29:27" SourceSystem="REDCap" SourceSystemVersion="14.3.7">
 <Study OID="Project.TubeLabelWriteTest2">
 <GlobalVariables>
 	<StudyName>tube label write test 2</StudyName>
@@ -25,8 +25,15 @@
 	<redcap:ProtectedEmailModeCustomText></redcap:ProtectedEmailModeCustomText>
 	<redcap:ProtectedEmailModeTrigger>ALL</redcap:ProtectedEmailModeTrigger>
 	<redcap:ProtectedEmailModeLogo></redcap:ProtectedEmailModeLogo>
+	<redcap:UserRolesGroup>
+		<redcap:UserRoles role_name="API User" unique_role_name="U-143AL9M7WX" lock_record="0" lock_record_multiform="0" lock_record_customize="0" data_export_tool="" data_export_instruments="[header,0]" data_import_tool="0" data_comparison_tool="0" data_logging="1" file_repository="1" double_data="0" user_rights="0" data_access_groups="0" graphical="1" reports="1" design="0" alerts="0" calendar="0" data_entry="[header,0]" api_export="1" api_import="1" api_modules="0" mobile_app="0" mobile_app_download_data="0" record_create="1" record_rename="1" record_delete="1" dts="0" participants="1" data_quality_design="0" data_quality_execute="0" data_quality_resolution="0" random_setup="0" random_dashboard="0" random_perform="0" realtime_webservice_mapping="0" realtime_webservice_adjudicate="0" external_module_config="" mycap_participants="0"/>
+		<redcap:UserRoles role_name="API User at OCS" unique_role_name="U-45238TJ8NX" lock_record="0" lock_record_multiform="0" lock_record_customize="0" data_export_tool="" data_export_instruments="[header,0]" data_import_tool="0" data_comparison_tool="0" data_logging="0" file_repository="1" double_data="0" user_rights="0" data_access_groups="0" graphical="0" reports="0" design="0" alerts="0" calendar="0" data_entry="[header,0]" api_export="0" api_import="1" api_modules="0" mobile_app="0" mobile_app_download_data="0" record_create="1" record_rename="0" record_delete="0" dts="0" participants="0" data_quality_design="0" data_quality_execute="0" data_quality_resolution="0" random_setup="0" random_dashboard="0" random_perform="0" realtime_webservice_mapping="0" realtime_webservice_adjudicate="0" external_module_config="" mycap_participants="0"/>
+		<redcap:UserRoles role_name="CTS-IT" unique_role_name="U-453DN4LPMD" lock_record="0" lock_record_multiform="0" lock_record_customize="0" data_export_tool="" data_export_instruments="[header,0]" data_import_tool="1" data_comparison_tool="1" data_logging="1" file_repository="1" double_data="0" user_rights="1" data_access_groups="1" graphical="1" reports="1" design="1" alerts="1" calendar="1" data_entry="[header,0]" api_export="0" api_import="0" api_modules="0" mobile_app="0" mobile_app_download_data="0" record_create="1" record_rename="1" record_delete="1" dts="0" participants="1" data_quality_design="1" data_quality_execute="1" data_quality_resolution="0" random_setup="0" random_dashboard="0" random_perform="0" realtime_webservice_mapping="0" realtime_webservice_adjudicate="0" external_module_config="" mycap_participants="0"/>
+		<redcap:UserRoles role_name="Duke GCs" unique_role_name="U-5173HMHJHL" lock_record="0" lock_record_multiform="0" lock_record_customize="0" data_export_tool="" data_export_instruments="[header,0]" data_import_tool="0" data_comparison_tool="0" data_logging="1" file_repository="1" double_data="0" user_rights="0" data_access_groups="0" graphical="1" reports="1" design="0" alerts="1" calendar="1" data_entry="[header,0]" api_export="0" api_import="0" api_modules="0" mobile_app="0" mobile_app_download_data="0" record_create="1" record_rename="0" record_delete="0" dts="0" participants="1" data_quality_design="0" data_quality_execute="0" data_quality_resolution="0" random_setup="0" random_dashboard="0" random_perform="0" realtime_webservice_mapping="0" realtime_webservice_adjudicate="0" external_module_config="" mycap_participants="0"/>
+		<redcap:UserRoles role_name="UF Study Team" unique_role_name="U-976JE4F7WM" lock_record="0" lock_record_multiform="0" lock_record_customize="0" data_export_tool="" data_export_instruments="[header,0]" data_import_tool="0" data_comparison_tool="0" data_logging="0" file_repository="1" double_data="0" user_rights="0" data_access_groups="0" graphical="1" reports="1" design="0" alerts="1" calendar="0" data_entry="[header,0]" api_export="0" api_import="0" api_modules="0" mobile_app="0" mobile_app_download_data="0" record_create="1" record_rename="0" record_delete="0" dts="0" participants="1" data_quality_design="0" data_quality_execute="0" data_quality_resolution="0" random_setup="0" random_dashboard="0" random_perform="0" realtime_webservice_mapping="0" realtime_webservice_adjudicate="0" external_module_config="" mycap_participants="0"/>
+	</redcap:UserRolesGroup>
 </GlobalVariables>
-<MetaDataVersion OID="Metadata.TubeLabelWriteTest2_2024-05-23_1052" Name="tube label write test 2" redcap:RecordIdField="ptid">
+<MetaDataVersion OID="Metadata.TubeLabelWriteTest2_2024-06-13_0929" Name="tube label write test 2" redcap:RecordIdField="ptid">
 	<Protocol>
 		<StudyEventRef StudyEventOID="Event.event_1_arm_1" OrderNumber="1" Mandatory="No"/>
 		<StudyEventRef StudyEventOID="Event.event_2_arm_1" OrderNumber="2" Mandatory="No"/>
@@ -63,7 +70,7 @@
 	<ItemDef OID="ptid" Name="ptid" DataType="text" Length="999" redcap:Variable="ptid" redcap:FieldType="text">
 		<Question><TranslatedText>Participant ID</TranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="visit_num" Name="visit_num" DataType="text" Length="999" redcap:Variable="visit_num" redcap:FieldType="text" redcap:FieldAnnotation="@TUBE_LABEL_GENERATOR">
+	<ItemDef OID="visit_num" Name="visit_num" DataType="text" Length="999" redcap:Variable="visit_num" redcap:FieldType="text" redcap:FieldAnnotation="@TUBE-LABEL-GENERATOR">
 		<Question><TranslatedText>Visit Number</TranslatedText></Question>
 	</ItemDef>
 	<ItemDef OID="header_complete" Name="header_complete" DataType="text" Length="1" redcap:Variable="header_complete" redcap:FieldType="select" redcap:SectionHeader="Form Status">
@@ -77,7 +84,7 @@
 	</CodeList>
 </MetaDataVersion>
 </Study>
-<ClinicalData StudyOID="Project.TubeLabelWriteTest2" MetaDataVersionOID="Metadata.TubeLabelWriteTest2_2024-05-23_1052">
+<ClinicalData StudyOID="Project.TubeLabelWriteTest2" MetaDataVersionOID="Metadata.TubeLabelWriteTest2_2024-06-13_0929">
 	<SubjectData SubjectKey="530001" redcap:RecordIdField="ptid">
 		<StudyEventData StudyEventOID="Event.event_1_arm_1" StudyEventRepeatKey="1" redcap:UniqueEventName="event_1_arm_1">
 			<FormData FormOID="Form.header" FormRepeatKey="1">
