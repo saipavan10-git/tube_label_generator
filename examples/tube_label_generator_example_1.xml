@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ODM xmlns="http://www.cdisc.org/ns/odm/v1.3" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:redcap="https://projectredcap.org" xsi:schemaLocation="http://www.cdisc.org/ns/odm/v1.3 schema/odm/ODM1-3-1.xsd" ODMVersion="1.3.1" FileOID="000-00-0000" FileType="Snapshot" Description="tube label write test 2" AsOfDateTime="2024-06-13T09:29:27" CreationDateTime="2024-06-13T09:29:27" SourceSystem="REDCap" SourceSystemVersion="14.3.7">
+<Study OID="Project.TubeLabelWriteTest2">
+<GlobalVariables>
+	<StudyName>tube label write test 2</StudyName>
+	<StudyDescription>This file contains the metadata, events, and data for REDCap project "tube label write test 2".</StudyDescription>
+	<ProtocolName>tube label write test 2</ProtocolName>
+	<redcap:RecordAutonumberingEnabled>1</redcap:RecordAutonumberingEnabled>
+	<redcap:CustomRecordLabel></redcap:CustomRecordLabel>
+	<redcap:SecondaryUniqueField></redcap:SecondaryUniqueField>
+	<redcap:SchedulingEnabled>0</redcap:SchedulingEnabled>
+	<redcap:SurveysEnabled>0</redcap:SurveysEnabled>
+	<redcap:SurveyInvitationEmailField></redcap:SurveyInvitationEmailField>
+	<redcap:DisplayTodayNowButton>1</redcap:DisplayTodayNowButton>
+	<redcap:PreventBranchingEraseValues>0</redcap:PreventBranchingEraseValues>
+	<redcap:RequireChangeReason>0</redcap:RequireChangeReason>
+	<redcap:DataHistoryPopup>1</redcap:DataHistoryPopup>
+	<redcap:OrderRecordsByField></redcap:OrderRecordsByField>
+	<redcap:MyCapEnabled>0</redcap:MyCapEnabled>
+	<redcap:Purpose>0</redcap:Purpose>
+	<redcap:PurposeOther></redcap:PurposeOther>
+	<redcap:ProjectNotes></redcap:ProjectNotes>
+	<redcap:MissingDataCodes></redcap:MissingDataCodes>
+	<redcap:ProtectedEmailMode>0</redcap:ProtectedEmailMode>
+	<redcap:ProtectedEmailModeCustomText></redcap:ProtectedEmailModeCustomText>
+	<redcap:ProtectedEmailModeTrigger>ALL</redcap:ProtectedEmailModeTrigger>
+	<redcap:ProtectedEmailModeLogo></redcap:ProtectedEmailModeLogo>
+	<redcap:UserRolesGroup>
+		<redcap:UserRoles role_name="API User" unique_role_name="U-143AL9M7WX" lock_record="0" lock_record_multiform="0" lock_record_customize="0" data_export_tool="" data_export_instruments="[header,0]" data_import_tool="0" data_comparison_tool="0" data_logging="1" file_repository="1" double_data="0" user_rights="0" data_access_groups="0" graphical="1" reports="1" design="0" alerts="0" calendar="0" data_entry="[header,0]" api_export="1" api_import="1" api_modules="0" mobile_app="0" mobile_app_download_data="0" record_create="1" record_rename="1" record_delete="1" dts="0" participants="1" data_quality_design="0" data_quality_execute="0" data_quality_resolution="0" random_setup="0" random_dashboard="0" random_perform="0" realtime_webservice_mapping="0" realtime_webservice_adjudicate="0" external_module_config="" mycap_participants="0"/>
+		<redcap:UserRoles role_name="API User at OCS" unique_role_name="U-45238TJ8NX" lock_record="0" lock_record_multiform="0" lock_record_customize="0" data_export_tool="" data_export_instruments="[header,0]" data_import_tool="0" data_comparison_tool="0" data_logging="0" file_repository="1" double_data="0" user_rights="0" data_access_groups="0" graphical="0" reports="0" design="0" alerts="0" calendar="0" data_entry="[header,0]" api_export="0" api_import="1" api_modules="0" mobile_app="0" mobile_app_download_data="0" record_create="1" record_rename="0" record_delete="0" dts="0" participants="0" data_quality_design="0" data_quality_execute="0" data_quality_resolution="0" random_setup="0" random_dashboard="0" random_perform="0" realtime_webservice_mapping="0" realtime_webservice_adjudicate="0" external_module_config="" mycap_participants="0"/>
+		<redcap:UserRoles role_name="CTS-IT" unique_role_name="U-453DN4LPMD" lock_record="0" lock_record_multiform="0" lock_record_customize="0" data_export_tool="" data_export_instruments="[header,0]" data_import_tool="1" data_comparison_tool="1" data_logging="1" file_repository="1" double_data="0" user_rights="1" data_access_groups="1" graphical="1" reports="1" design="1" alerts="1" calendar="1" data_entry="[header,0]" api_export="0" api_import="0" api_modules="0" mobile_app="0" mobile_app_download_data="0" record_create="1" record_rename="1" record_delete="1" dts="0" participants="1" data_quality_design="1" data_quality_execute="1" data_quality_resolution="0" random_setup="0" random_dashboard="0" random_perform="0" realtime_webservice_mapping="0" realtime_webservice_adjudicate="0" external_module_config="" mycap_participants="0"/>
+		<redcap:UserRoles role_name="Duke GCs" unique_role_name="U-5173HMHJHL" lock_record="0" lock_record_multiform="0" lock_record_customize="0" data_export_tool="" data_export_instruments="[header,0]" data_import_tool="0" data_comparison_tool="0" data_logging="1" file_repository="1" double_data="0" user_rights="0" data_access_groups="0" graphical="1" reports="1" design="0" alerts="1" calendar="1" data_entry="[header,0]" api_export="0" api_import="0" api_modules="0" mobile_app="0" mobile_app_download_data="0" record_create="1" record_rename="0" record_delete="0" dts="0" participants="1" data_quality_design="0" data_quality_execute="0" data_quality_resolution="0" random_setup="0" random_dashboard="0" random_perform="0" realtime_webservice_mapping="0" realtime_webservice_adjudicate="0" external_module_config="" mycap_participants="0"/>
+		<redcap:UserRoles role_name="UF Study Team" unique_role_name="U-976JE4F7WM" lock_record="0" lock_record_multiform="0" lock_record_customize="0" data_export_tool="" data_export_instruments="[header,0]" data_import_tool="0" data_comparison_tool="0" data_logging="0" file_repository="1" double_data="0" user_rights="0" data_access_groups="0" graphical="1" reports="1" design="0" alerts="1" calendar="0" data_entry="[header,0]" api_export="0" api_import="0" api_modules="0" mobile_app="0" mobile_app_download_data="0" record_create="1" record_rename="0" record_delete="0" dts="0" participants="1" data_quality_design="0" data_quality_execute="0" data_quality_resolution="0" random_setup="0" random_dashboard="0" random_perform="0" realtime_webservice_mapping="0" realtime_webservice_adjudicate="0" external_module_config="" mycap_participants="0"/>
+	</redcap:UserRolesGroup>
+</GlobalVariables>
+<MetaDataVersion OID="Metadata.TubeLabelWriteTest2_2024-06-13_0929" Name="tube label write test 2" redcap:RecordIdField="ptid">
+	<Protocol>
+		<StudyEventRef StudyEventOID="Event.event_1_arm_1" OrderNumber="1" Mandatory="No"/>
+		<StudyEventRef StudyEventOID="Event.event_2_arm_1" OrderNumber="2" Mandatory="No"/>
+		<StudyEventRef StudyEventOID="Event.event_3_arm_1" OrderNumber="3" Mandatory="No"/>
+		<StudyEventRef StudyEventOID="Event.event_4_arm_1" OrderNumber="4" Mandatory="No"/>
+		<StudyEventRef StudyEventOID="Event.event_5_arm_1" OrderNumber="5" Mandatory="No"/>
+	</Protocol>
+	<StudyEventDef OID="Event.event_1_arm_1" Name="Event 1" Type="Common" Repeating="No" redcap:EventName="Event 1" redcap:CustomEventLabel="" redcap:UniqueEventName="event_1_arm_1" redcap:ArmNum="1" redcap:ArmName="Arm 1" redcap:DayOffset="1" redcap:OffsetMin="0" redcap:OffsetMax="0">
+		<FormRef FormOID="Form.header" OrderNumber="1" Mandatory="No" redcap:FormName="header"/>
+	</StudyEventDef>
+	<StudyEventDef OID="Event.event_2_arm_1" Name="Event 2" Type="Common" Repeating="No" redcap:EventName="Event 2" redcap:CustomEventLabel="" redcap:UniqueEventName="event_2_arm_1" redcap:ArmNum="1" redcap:ArmName="Arm 1" redcap:DayOffset="2" redcap:OffsetMin="0" redcap:OffsetMax="0">
+		<FormRef FormOID="Form.header" OrderNumber="1" Mandatory="No" redcap:FormName="header"/>
+	</StudyEventDef>
+	<StudyEventDef OID="Event.event_3_arm_1" Name="Event 3" Type="Common" Repeating="No" redcap:EventName="Event 3" redcap:CustomEventLabel="" redcap:UniqueEventName="event_3_arm_1" redcap:ArmNum="1" redcap:ArmName="Arm 1" redcap:DayOffset="3" redcap:OffsetMin="0" redcap:OffsetMax="0">
+		<FormRef FormOID="Form.header" OrderNumber="1" Mandatory="No" redcap:FormName="header"/>
+	</StudyEventDef>
+	<StudyEventDef OID="Event.event_4_arm_1" Name="Event 4" Type="Common" Repeating="No" redcap:EventName="Event 4" redcap:CustomEventLabel="" redcap:UniqueEventName="event_4_arm_1" redcap:ArmNum="1" redcap:ArmName="Arm 1" redcap:DayOffset="4" redcap:OffsetMin="0" redcap:OffsetMax="0">
+		<FormRef FormOID="Form.header" OrderNumber="1" Mandatory="No" redcap:FormName="header"/>
+	</StudyEventDef>
+	<StudyEventDef OID="Event.event_5_arm_1" Name="Event 5" Type="Common" Repeating="No" redcap:EventName="Event 5" redcap:CustomEventLabel="" redcap:UniqueEventName="event_5_arm_1" redcap:ArmNum="1" redcap:ArmName="Arm 1" redcap:DayOffset="5" redcap:OffsetMin="0" redcap:OffsetMax="0">
+		<FormRef FormOID="Form.header" OrderNumber="1" Mandatory="No" redcap:FormName="header"/>
+	</StudyEventDef>
+	<FormDef OID="Form.header" Name="Header" Repeating="No" redcap:FormName="header">
+		<ItemGroupRef ItemGroupOID="header.ptid" Mandatory="No"/>
+		<ItemGroupRef ItemGroupOID="header.header_complete" Mandatory="No"/>
+	</FormDef>
+	<ItemGroupDef OID="header.ptid" Name="Header" Repeating="No">
+		<ItemRef ItemOID="ptid" Mandatory="No" redcap:Variable="ptid"/>
+		<ItemRef ItemOID="visit_num" Mandatory="No" redcap:Variable="visit_num"/>
+	</ItemGroupDef>
+	<ItemGroupDef OID="header.header_complete" Name="Form Status" Repeating="No">
+		<ItemRef ItemOID="header_complete" Mandatory="No" redcap:Variable="header_complete"/>
+	</ItemGroupDef>
+	<ItemDef OID="ptid" Name="ptid" DataType="text" Length="999" redcap:Variable="ptid" redcap:FieldType="text">
+		<Question><TranslatedText>Participant ID</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="visit_num" Name="visit_num" DataType="text" Length="999" redcap:Variable="visit_num" redcap:FieldType="text" redcap:FieldAnnotation="@TUBE-LABEL-GENERATOR">
+		<Question><TranslatedText>Visit Number</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="header_complete" Name="header_complete" DataType="text" Length="1" redcap:Variable="header_complete" redcap:FieldType="select" redcap:SectionHeader="Form Status">
+		<Question><TranslatedText>Complete?</TranslatedText></Question>
+		<CodeListRef CodeListOID="header_complete.choices"/>
+	</ItemDef>
+	<CodeList OID="header_complete.choices" Name="header_complete" DataType="text" redcap:Variable="header_complete">
+		<CodeListItem CodedValue="0"><Decode><TranslatedText>Incomplete</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="1"><Decode><TranslatedText>Unverified</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="2"><Decode><TranslatedText>Complete</TranslatedText></Decode></CodeListItem>
+	</CodeList>
+</MetaDataVersion>
+</Study>
+<ClinicalData StudyOID="Project.TubeLabelWriteTest2" MetaDataVersionOID="Metadata.TubeLabelWriteTest2_2024-06-13_0929">
+	<SubjectData SubjectKey="530001" redcap:RecordIdField="ptid">
+		<StudyEventData StudyEventOID="Event.event_1_arm_1" StudyEventRepeatKey="1" redcap:UniqueEventName="event_1_arm_1">
+			<FormData FormOID="Form.header" FormRepeatKey="1">
+				<ItemGroupData ItemGroupOID="header.ptid" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="ptid" Value="530001"/>
+					<ItemData ItemOID="visit_num" Value="1"/>
+				</ItemGroupData>
+				<ItemGroupData ItemGroupOID="header.header_complete" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="header_complete" Value="2"/>
+				</ItemGroupData>
+			</FormData>
+		</StudyEventData>
+		<StudyEventData StudyEventOID="Event.event_2_arm_1" StudyEventRepeatKey="1" redcap:UniqueEventName="event_2_arm_1">
+			<FormData FormOID="Form.header" FormRepeatKey="1">
+				<ItemGroupData ItemGroupOID="header.ptid" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="ptid" Value="530001"/>
+					<ItemData ItemOID="visit_num" Value="2"/>
+				</ItemGroupData>
+				<ItemGroupData ItemGroupOID="header.header_complete" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="header_complete" Value="2"/>
+				</ItemGroupData>
+			</FormData>
+		</StudyEventData>
+		<StudyEventData StudyEventOID="Event.event_3_arm_1" StudyEventRepeatKey="1" redcap:UniqueEventName="event_3_arm_1">
+			<FormData FormOID="Form.header" FormRepeatKey="1">
+				<ItemGroupData ItemGroupOID="header.ptid" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="ptid" Value="530001"/>
+					<ItemData ItemOID="visit_num" Value="3"/>
+				</ItemGroupData>
+				<ItemGroupData ItemGroupOID="header.header_complete" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="header_complete" Value="2"/>
+				</ItemGroupData>
+			</FormData>
+		</StudyEventData>
+		<StudyEventData StudyEventOID="Event.event_4_arm_1" StudyEventRepeatKey="1" redcap:UniqueEventName="event_4_arm_1">
+			<FormData FormOID="Form.header" FormRepeatKey="1">
+				<ItemGroupData ItemGroupOID="header.ptid" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="ptid" Value="530001"/>
+					<ItemData ItemOID="visit_num" Value="4"/>
+				</ItemGroupData>
+				<ItemGroupData ItemGroupOID="header.header_complete" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="header_complete" Value="2"/>
+				</ItemGroupData>
+			</FormData>
+		</StudyEventData>
+		<StudyEventData StudyEventOID="Event.event_5_arm_1" StudyEventRepeatKey="1" redcap:UniqueEventName="event_5_arm_1">
+			<FormData FormOID="Form.header" FormRepeatKey="1">
+				<ItemGroupData ItemGroupOID="header.ptid" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="ptid" Value="530001"/>
+					<ItemData ItemOID="visit_num" Value="5"/>
+				</ItemGroupData>
+				<ItemGroupData ItemGroupOID="header.header_complete" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="header_complete" Value="2"/>
+				</ItemGroupData>
+			</FormData>
+		</StudyEventData>
+	</SubjectData>
+	<SubjectData SubjectKey="530010" redcap:RecordIdField="ptid">
+		<StudyEventData StudyEventOID="Event.event_1_arm_1" StudyEventRepeatKey="1" redcap:UniqueEventName="event_1_arm_1">
+			<FormData FormOID="Form.header" FormRepeatKey="1">
+				<ItemGroupData ItemGroupOID="header.ptid" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="ptid" Value="530010"/>
+					<ItemData ItemOID="visit_num" Value="1"/>
+				</ItemGroupData>
+				<ItemGroupData ItemGroupOID="header.header_complete" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="header_complete" Value="2"/>
+				</ItemGroupData>
+			</FormData>
+		</StudyEventData>
+		<StudyEventData StudyEventOID="Event.event_2_arm_1" StudyEventRepeatKey="1" redcap:UniqueEventName="event_2_arm_1">
+			<FormData FormOID="Form.header" FormRepeatKey="1">
+				<ItemGroupData ItemGroupOID="header.ptid" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="ptid" Value="530010"/>
+					<ItemData ItemOID="visit_num" Value="2"/>
+				</ItemGroupData>
+				<ItemGroupData ItemGroupOID="header.header_complete" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="header_complete" Value="2"/>
+				</ItemGroupData>
+			</FormData>
+		</StudyEventData>
+		<StudyEventData StudyEventOID="Event.event_3_arm_1" StudyEventRepeatKey="1" redcap:UniqueEventName="event_3_arm_1">
+			<FormData FormOID="Form.header" FormRepeatKey="1">
+				<ItemGroupData ItemGroupOID="header.ptid" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="ptid" Value="530010"/>
+					<ItemData ItemOID="visit_num" Value="3"/>
+				</ItemGroupData>
+				<ItemGroupData ItemGroupOID="header.header_complete" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="header_complete" Value="2"/>
+				</ItemGroupData>
+			</FormData>
+		</StudyEventData>
+		<StudyEventData StudyEventOID="Event.event_4_arm_1" StudyEventRepeatKey="1" redcap:UniqueEventName="event_4_arm_1">
+			<FormData FormOID="Form.header" FormRepeatKey="1">
+				<ItemGroupData ItemGroupOID="header.ptid" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="ptid" Value="530010"/>
+					<ItemData ItemOID="visit_num" Value="4"/>
+				</ItemGroupData>
+				<ItemGroupData ItemGroupOID="header.header_complete" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="header_complete" Value="2"/>
+				</ItemGroupData>
+			</FormData>
+		</StudyEventData>
+		<StudyEventData StudyEventOID="Event.event_5_arm_1" StudyEventRepeatKey="1" redcap:UniqueEventName="event_5_arm_1">
+			<FormData FormOID="Form.header" FormRepeatKey="1">
+				<ItemGroupData ItemGroupOID="header.ptid" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="ptid" Value="530010"/>
+					<ItemData ItemOID="visit_num" Value="5"/>
+				</ItemGroupData>
+				<ItemGroupData ItemGroupOID="header.header_complete" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="header_complete" Value="2"/>
+				</ItemGroupData>
+			</FormData>
+		</StudyEventData>
+	</SubjectData>
+	<SubjectData SubjectKey="530100" redcap:RecordIdField="ptid">
+		<StudyEventData StudyEventOID="Event.event_1_arm_1" StudyEventRepeatKey="1" redcap:UniqueEventName="event_1_arm_1">
+			<FormData FormOID="Form.header" FormRepeatKey="1">
+				<ItemGroupData ItemGroupOID="header.ptid" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="ptid" Value="530100"/>
+					<ItemData ItemOID="visit_num" Value="1"/>
+				</ItemGroupData>
+				<ItemGroupData ItemGroupOID="header.header_complete" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="header_complete" Value="2"/>
+				</ItemGroupData>
+			</FormData>
+		</StudyEventData>
+		<StudyEventData StudyEventOID="Event.event_2_arm_1" StudyEventRepeatKey="1" redcap:UniqueEventName="event_2_arm_1">
+			<FormData FormOID="Form.header" FormRepeatKey="1">
+				<ItemGroupData ItemGroupOID="header.ptid" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="ptid" Value="530100"/>
+					<ItemData ItemOID="visit_num" Value="2"/>
+				</ItemGroupData>
+				<ItemGroupData ItemGroupOID="header.header_complete" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="header_complete" Value="2"/>
+				</ItemGroupData>
+			</FormData>
+		</StudyEventData>
+		<StudyEventData StudyEventOID="Event.event_3_arm_1" StudyEventRepeatKey="1" redcap:UniqueEventName="event_3_arm_1">
+			<FormData FormOID="Form.header" FormRepeatKey="1">
+				<ItemGroupData ItemGroupOID="header.ptid" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="ptid" Value="530100"/>
+					<ItemData ItemOID="visit_num" Value="3"/>
+				</ItemGroupData>
+				<ItemGroupData ItemGroupOID="header.header_complete" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="header_complete" Value="2"/>
+				</ItemGroupData>
+			</FormData>
+		</StudyEventData>
+		<StudyEventData StudyEventOID="Event.event_4_arm_1" StudyEventRepeatKey="1" redcap:UniqueEventName="event_4_arm_1">
+			<FormData FormOID="Form.header" FormRepeatKey="1">
+				<ItemGroupData ItemGroupOID="header.ptid" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="ptid" Value="530100"/>
+					<ItemData ItemOID="visit_num" Value="4"/>
+				</ItemGroupData>
+				<ItemGroupData ItemGroupOID="header.header_complete" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="header_complete" Value="2"/>
+				</ItemGroupData>
+			</FormData>
+		</StudyEventData>
+		<StudyEventData StudyEventOID="Event.event_5_arm_1" StudyEventRepeatKey="1" redcap:UniqueEventName="event_5_arm_1">
+			<FormData FormOID="Form.header" FormRepeatKey="1">
+				<ItemGroupData ItemGroupOID="header.ptid" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="ptid" Value="530100"/>
+					<ItemData ItemOID="visit_num" Value="5"/>
+				</ItemGroupData>
+				<ItemGroupData ItemGroupOID="header.header_complete" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="header_complete" Value="2"/>
+				</ItemGroupData>
+			</FormData>
+		</StudyEventData>
+	</SubjectData>
+</ClinicalData>
+</ODM>

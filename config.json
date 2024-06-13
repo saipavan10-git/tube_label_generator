@@ -1,5 +1,5 @@
 {
-    "name": "ADRC Tube Label Generator",
+    "name": "Tube Label Generator",
     "description": "Module description",
     "namespace": "TLG\\ExternalModule",
     "framework-version": 15,
@@ -22,19 +22,25 @@
             "key": "output_base",
             "name": "Output base",
             "type": "text"
+        },
+        {
+            "key": "ptid_field",
+            "name": "Subject ID (ptid) field",
+            "type": "field-list",
+            "required": true,
+            "repeatable": false,
+            "autocomplete": true
+        },
+        {
+            "key": "visit_num_field",
+            "name": "Visit number field",
+            "type": "field-list",
+            "required": true,
+            "repeatable": false,
+            "autocomplete": true
         }
     ],
-    "links": {
-        "project": [
-            {
-                "name": "Generate Labels",
-                "icon": "fas fa-flask-vial",
-                "url": "pages/label_generation.php",
-                "show-header-and-footer": true
-            }
-        ]
-    },
-    "auth-ajax-actions": ["generateTubeLabels", "getDataForDropdown"],
+    "auth-ajax-actions": ["generateTubeLabels", "getDataForPtidDropdown", "getDataForVisitDropdown"],
     "compatibility": {
         "redcap-version-min": "14.0.2",
         "php-version-min": "8.0.0"
