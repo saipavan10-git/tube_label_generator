@@ -32,7 +32,7 @@ class ExternalModule extends AbstractExternalModule {
     const DEFAULT_OUTPUT_BASE = 16;
     const TUBEL_LABEL_GEN_TAG = "@TUBE-LABEL-GENERATOR";
     const PTID_FIELD = "ptid_field";
-    const VISIT_NUM_FIELD = "visit_num";
+    const VISIT_NUM_FIELD = "visit_num_field";
 
     private function containsTag(string $targetTag, ?string $tags): bool
     {
