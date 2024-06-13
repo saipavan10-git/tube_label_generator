@@ -5,19 +5,63 @@ namespace TLG\ExternalModule;
 use ExternalModules\AbstractExternalModule;
 use REDCap;
 
+abstract class Page
+{
+    const DATA_ENTRY = 'DataEntry/index.php';
+    const ONLINE_DESIGNER = 'Design/online_designer.php';
+    const SURVEY = 'surveys/index.php';
+    const SURVEY_THEME = 'Surveys/theme_view.php';
+}
+
+abstract class Validate
+{
+    static function pageIs(string $page): bool
+    {
+        return PAGE == $page;
+    }
+
+    static function pageIsIn(array $pages): bool
+    {
+        return in_array(PAGE, $pages);
+    }
+}
+
 class ExternalModule extends AbstractExternalModule {
 
     const DEFAULT_INPUT_BASE = 10;
     const DEFAULT_OUTPUT_BASE = 16;
+    const TUBEL_LABEL_GEN_TAG = "@TUBE-LABEL-GENERATOR";
+    const PTID_FIELD = "ptid_field";
+    const VISIT_NUM_FIELD = "visit_num_field";
+
+    private function containsTag(string $targetTag, ?string $tags): bool
+    {
+        return (isset($tags)) ? in_array($targetTag, explode(' ', $tags)) : false;
+    }
+
+    private function isXTypeField(array $field): bool
+    {
+        $isTextField = $field['element_type'] == 'text';
+        return $isTextField;
+        // $hasDateValidation = in_array($field['element_validation_type'], Validate::$date_validations);
+        // return $isTextField && $hasDateValidation;
+    }
 
     function redcap_module_ajax($action, $payload) {
 
         switch ($action) {
             case "generateTubeLabels":
-                return $this->generateLabelArray($payload['ptid'], $payload['visit_id']);
+                return $this->generateLabelArray($payload['ptid'], $payload['visit_num']);
                 break;
-            case "getDataForDropdown":
-                return $this->getDataForDropdown([1]);
+            case "getDataForPtidDropdown":
+                $ptid_field = $this->framework->getProjectSetting(self::PTID_FIELD);
+                // TODO: handle null value
+                return $this->getDataForDropdown($ptid_field);
+                break;
+            case "getDataForVisitDropdown":
+                $visit_num_field = $this->framework->getProjectSetting(self::VISIT_NUM_FIELD);
+                // TODO: handle null value
+                return $this->getDataForDropdown($visit_num_field);
                 break;
             default:
                 // $actions not in auth-ajax-actions throw an error
@@ -26,18 +70,53 @@ class ExternalModule extends AbstractExternalModule {
         }
     }
 
+    function redcap_every_page_top($project_id)
+    {
+        if (Validate::pageIs(Page::ONLINE_DESIGNER) && $project_id) {
+            // Append the action tag in the designer view
+            $this->initializeJavascriptModuleObject();
+            $this->tt_addToJavascriptModuleObject('tubeLabelGenTag', self::TUBEL_LABEL_GEN_TAG);
+            $this->includeJs('js/addActionTag.js');
+        } else if (Validate::pageIsIn(array(Page::DATA_ENTRY, Page::SURVEY, Page::SURVEY_THEME)) && isset($_GET['id'])) {
+            // Handle the logic of the action tag on data entry
+            global $Proj;
+            $instrument = $_GET['page'];
+            $tubeLabelGenFields = [];
+
+            // Iterate through all fields and search for fields with @TUBE-LABEL-GENERATOR tags and add them
+            // to an array to pass to JS to handle. Note: although all fields with the tag are checked only
+            // the first field will have the button appended to it.
+            foreach (array_keys($Proj->forms[$instrument]['fields']) as $field_name) {
+                $field = $Proj->metadata[$field_name];
+                if ($this->isXTypeField($field)) {
+                    $action_tags = $field['misc'];
+
+                    if ($this->containsTag(self::TUBEL_LABEL_GEN_TAG, $action_tags)) {
+                        array_push($tubeLabelGenFields, $field_name);
+                    }
+                }
+            }
+
+            if (!empty($tubeLabelGenFields)){
+                $this->initializeJavascriptModuleObject();
+                $emData = [ "tagId" => self::TUBEL_LABEL_GEN_TAG, "hasMultipleTags" => count($tubeLabelGenFields) > 1, "tubeLabelGenFieldId" => $tubeLabelGenFields[0], "ptidFieldId" => $this->getProjectSetting(self::PTID_FIELD), "visitNumFieldId" => $this->getProjectSetting(self::VISIT_NUM_FIELD)];
+                $this->tt_addToJavascriptModuleObject('emData', $emData);
+                $this->includeJs("js/pdf-lib.min.js");
+                $this->includeJs('js/generateTubeLabels.js');
+            }
+        }
+    }
 
     function includeJs($path) {
         echo '<script src="' . $this->framework->getUrl($path) . '">;</script>';
     }
 
-
-    function encodeUnique($ptid, $visit_id, $sample_symbol, $sample_num, int $ptid_pad = 6, int $visit_pad = 2, int $input_base = self::DEFAULT_INPUT_BASE, int $output_base = self::DEFAULT_OUTPUT_BASE) :string {
+    function encodeUnique($ptid, $visit_num, $sample_symbol, $sample_num, int $ptid_pad = 6, int $visit_pad = 2, int $input_base = self::DEFAULT_INPUT_BASE, int $output_base = self::DEFAULT_OUTPUT_BASE) :string {
         /* converts ptid id and visit id into $output_base,
          * creates a checksum
          * concats all
          * Potentially 17 characters total
-         * <ptid>-<visit_id>-<sample_symbol>-<sample_num>-checksum
+         * <ptid>-<visit_num>-<sample_symbol>-<sample_num>-checksum
          * 4 characters for human readability (-)
          * 6 characters for ptid; 16^6 = > 16 million ptids
          * 2 characters for visit; 16^2 = 256 visits per person
@@ -46,13 +125,12 @@ class ExternalModule extends AbstractExternalModule {
          * 1 character for checksum
          */
         $ptid_encode = str_pad(base_convert($ptid, $input_base, $output_base), $ptid_pad, '0', STR_PAD_LEFT);
-        $visit_encode = str_pad(base_convert($visit_id, $input_base, $output_base), $visit_pad, '0', STR_PAD_LEFT);
+        $visit_encode = str_pad(base_convert($visit_num, $input_base, $output_base), $visit_pad, '0', STR_PAD_LEFT);
         $label_data_arr = [$ptid_encode, $visit_encode, $sample_symbol, $sample_num];
         $check_digit = $this->generateLuhnChecksum(implode("", $label_data_arr), $output_base);
         array_push($label_data_arr, $check_digit);
         return strtoupper(implode("-", $label_data_arr));
     }
-
 
     function generateLuhnChecksum($input, $base) {
         // https://en.wikipedia.org/wiki/Luhn_mod_N_algorithm
@@ -72,7 +150,6 @@ class ExternalModule extends AbstractExternalModule {
         $remainder = $sum % $base;
         return base_convert( ($base - $remainder) % $base, 10, $base );
     }
-
 
     function generateLabelArray($ptid, $visit_num) {
         $output_base = $this->framework->getProjectSetting("output_base") ?: self::DEFAULT_OUTPUT_BASE;
@@ -123,26 +200,22 @@ class ExternalModule extends AbstractExternalModule {
         return json_encode($output_list);
     }
 
+    function getDataForDropdown(string $field) {
+        // Get the field data
+        $get_data = [
+             'project_id' => PROJECT_ID,
+             'fields' => $field
+         ];
+        $data = REDCap::getData($get_data);
 
-    function getDataForDropdown(array $fields) {
-        //  $get_data = [
-        //      'project_id' => PROJECT_ID,
-        //      'fields' => $fields
-        //  ];
-        // $data = REDCap::getData($get_data);
+        // populate response for jquery input field
+        // the data needs to be in the format of [{id: <option_id>, text: <text_to_display>}]
+        $response = [];
+        foreach ($data as $entry) {
+            $values = array_shift($entry);
+            array_push($response,[ "id" => $values[$field], "text" => $values[$field]]);
+        }
 
-        // HACK: provide sample data
-        $response = [
-            [
-                "id" => 110001,
-                "text" => "110001"
-            ],
-            [
-                "id" => 110002,
-                "text" => "110002"
-            ],
-        ];
-
-        return $response;
+        return json_encode($response);
     }
 }
