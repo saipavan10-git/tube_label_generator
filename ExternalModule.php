@@ -102,7 +102,7 @@ class ExternalModule extends AbstractExternalModule {
                 $emData = [ "tagId" => self::TUBEL_LABEL_GEN_TAG, "hasMultipleTags" => count($tubeLabelGenFields) > 1, "tubeLabelGenFieldId" => $tubeLabelGenFields[0], "ptidFieldId" => $this->getProjectSetting(self::PTID_FIELD), "visitNumFieldId" => $this->getProjectSetting(self::VISIT_NUM_FIELD)];
                 $this->tt_addToJavascriptModuleObject('emData', $emData);
                 $this->includeJs("js/pdf-lib.min.js");
-                $this->includeJs('js/generateTubeLabels.js');
+                $this->includeJs('js/generateTubeLabels.bundle.js');
             }
         }
     }
