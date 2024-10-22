@@ -26,7 +26,8 @@ abstract class Validate
     }
 }
 
-class ExternalModule extends AbstractExternalModule {
+class ExternalModule extends AbstractExternalModule
+{
 
     const DEFAULT_INPUT_BASE = 10;
     const DEFAULT_OUTPUT_BASE = 16;
@@ -47,7 +48,8 @@ class ExternalModule extends AbstractExternalModule {
         // return $isTextField && $hasDateValidation;
     }
 
-    function redcap_module_ajax($action, $payload) {
+    function redcap_module_ajax($action, $payload)
+    {
 
         switch ($action) {
             case "generateTubeLabels":
@@ -97,21 +99,34 @@ class ExternalModule extends AbstractExternalModule {
                 }
             }
 
-            if (!empty($tubeLabelGenFields)){
+            if (!empty($tubeLabelGenFields)) {
                 $this->initializeJavascriptModuleObject();
-                $emData = [ "tagId" => self::TUBEL_LABEL_GEN_TAG, "hasMultipleTags" => count($tubeLabelGenFields) > 1, "tubeLabelGenFieldId" => $tubeLabelGenFields[0], "ptidFieldId" => $this->getProjectSetting(self::PTID_FIELD), "visitNumFieldId" => $this->getProjectSetting(self::VISIT_NUM_FIELD)];
+                $emData = ["tagId" => self::TUBEL_LABEL_GEN_TAG, "hasMultipleTags" => count($tubeLabelGenFields) > 1, "tubeLabelGenFieldId" => $tubeLabelGenFields[0], "ptidFieldId" => $this->getProjectSetting(self::PTID_FIELD), "visitNumFieldId" => $this->getProjectSetting(self::VISIT_NUM_FIELD)];
                 $this->tt_addToJavascriptModuleObject('emData', $emData);
-                $this->includeJs("js/pdf-lib.min.js");
                 $this->includeJs('js/generateTubeLabels.bundle.js');
             }
+
+            // Add the help page link to the javascript object
+            $this->initializeJavascriptModuleObject();
+            $tubeLabelPrintHelpUrl = $this->getUrl("assets/printing_help.pdf");
+            $this->tt_addToJavascriptModuleObject('tubeLabelPrintHelpUrl', $tubeLabelPrintHelpUrl);
+            // Include css for the module
+            $this->includeCss("assets/module.css");
         }
     }
 
-    function includeJs($path) {
+    function includeJs($path)
+    {
         echo '<script src="' . $this->framework->getUrl($path) . '">;</script>';
     }
 
-    function encodeUnique($ptid, $visit_num, $sample_symbol, $sample_num, int $ptid_pad = 6, int $visit_pad = 2, int $input_base = self::DEFAULT_INPUT_BASE, int $output_base = self::DEFAULT_OUTPUT_BASE) :string {
+    function includeCss($path)
+    {
+        echo '<link rel="stylesheet" href="' . $this->framework->getUrl($path) . '">';
+    }
+
+    function encodeUnique($ptid, $visit_num, $sample_symbol, $sample_num, int $ptid_pad = 6, int $visit_pad = 2, int $input_base = self::DEFAULT_INPUT_BASE, int $output_base = self::DEFAULT_OUTPUT_BASE): string
+    {
         /* converts ptid id and visit id into $output_base,
          * creates a checksum
          * concats all
@@ -132,7 +147,8 @@ class ExternalModule extends AbstractExternalModule {
         return strtoupper(implode("-", $label_data_arr));
     }
 
-    function generateLuhnChecksum($input, $base) {
+    function generateLuhnChecksum($input, $base)
+    {
         // https://en.wikipedia.org/wiki/Luhn_mod_N_algorithm
         // NOTE: base must be even to work, see: https://en.wikipedia.org/wiki/Luhn_mod_N_algorithm#Limitation
         $sum = 0;
@@ -148,10 +164,11 @@ class ExternalModule extends AbstractExternalModule {
         }
 
         $remainder = $sum % $base;
-        return base_convert( ($base - $remainder) % $base, 10, $base );
+        return base_convert(($base - $remainder) % $base, 10, $base);
     }
 
-    function generateLabelArray($ptid, $visit_num) {
+    function generateLabelArray($ptid, $visit_num)
+    {
         $output_base = $this->framework->getProjectSetting("output_base") ?: self::DEFAULT_OUTPUT_BASE;
 
         // TODO: make this configurable
@@ -200,12 +217,13 @@ class ExternalModule extends AbstractExternalModule {
         return json_encode($output_list);
     }
 
-    function getDataForDropdown(string $field) {
+    function getDataForDropdown(string $field)
+    {
         // Get the field data
         $get_data = [
-             'project_id' => PROJECT_ID,
-             'fields' => $field
-         ];
+            'project_id' => PROJECT_ID,
+            'fields' => $field
+        ];
         $data = REDCap::getData($get_data);
 
         // populate response for jquery input field
@@ -213,7 +231,7 @@ class ExternalModule extends AbstractExternalModule {
         $response = [];
         foreach ($data as $entry) {
             $values = array_shift($entry);
-            array_push($response,[ "id" => $values[$field], "text" => $values[$field]]);
+            array_push($response, ["id" => $values[$field], "text" => $values[$field]]);
         }
 
         return json_encode($response);
