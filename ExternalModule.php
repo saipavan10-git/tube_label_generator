@@ -108,7 +108,7 @@ class ExternalModule extends AbstractExternalModule
 
             // Add the help page link to the javascript object
             $this->initializeJavascriptModuleObject();
-            $tubeLabelPrintHelpUrl = $this->getUrl("assets/printing_help.pdf");
+            $tubeLabelPrintHelpUrl = $this->getUrl("assets/printing_help.md");
             $this->tt_addToJavascriptModuleObject('tubeLabelPrintHelpUrl', $tubeLabelPrintHelpUrl);
             // Include css for the module
             $this->includeCss("assets/module.css");
