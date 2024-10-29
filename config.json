@@ -40,6 +40,16 @@
             "autocomplete": true
         }
     ],
+    "links": {
+        "project": [
+            {
+                "name": "Tube Label Generator Help",
+                "icon": "fas fa-circle-info",
+                "url": "help.php",
+                "show-header-and-footer": true
+            }
+        ]
+    },
     "auth-ajax-actions": ["generateTubeLabels", "getDataForPtidDropdown", "getDataForVisitDropdown"],
     "compatibility": {
         "redcap-version-min": "14.0.2",
