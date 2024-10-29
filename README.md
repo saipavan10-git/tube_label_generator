@@ -25,7 +25,7 @@ The __Tube Label Generator__ external module prints a preprogrammed layout of 23
 
 The labels are printed in a long strip.
 
-> ![](./img/DFP-103_sample_6_labels.jpeg)
+> ![](./img/DFP-103_sample_6_labels.png)
 
 The module adds a button under REDCap form field to allow printing of a 23-label set for that record and event. The `@TUBE-LABEL-GENERATOR` action tag positions the button under any field where it is used.
 
