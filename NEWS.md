@@ -1,3 +1,6 @@
+# tube_label_generator 0.2.1 (released 2024-10-30)
+- Rewrite README for current module features (@pbchase, @saipavan10-git, #19)
+
 # tube_label_generator 0.2.0 (released 2024-10-29)
 - Adjust the centering of QR code (@saipavan10-git, #11, #13)
 - Update text of alert dialog boxes when printing fails (@saipavan10-git, #10, #13)
