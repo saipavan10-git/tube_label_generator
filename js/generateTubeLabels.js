@@ -30,7 +30,7 @@ $(document).ready(function () {
             .prop('disabled', true)
     );
 
-    // Append the "Tube Label Generator help icon"
+    // Append the "REDCap Zebra Label Printer help icon"
     $tubeLabelGenTd.append(
         $('<i />')
             .addClass('fas fa-question-circle')
