@@ -1,6 +1,6 @@
-# 📚 **Tube Label Generator Printing Guide**
+# 📚 **REDCap Zebra Label Printer Printing Guide**
 
-Welcome to the **Tube Label Generator Printing Guide**!
+Welcome to the **REDCap Zebra Label Printer Printing Guide**!
 
 This guide will walk you through setting up your Zebra printer and the necessary software for printing tube labels efficiently.
 
