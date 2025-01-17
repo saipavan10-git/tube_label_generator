@@ -14,7 +14,7 @@ This guide will walk you through setting up your Zebra printer and the necessary
 
 ## 🌐 **Zebra Browser Print App Setup**
 
-1. **[Download the Zebra Browser Print app](https://www.zebra.com/gb/en/support-downloads/software/printer-software/browser-print.html#browser-print)** for your operating system (Note: You'll need to complete a short survey to access the download).
+1. **<a href="https://www.zebra.com/gb/en/support-downloads/software/printer-software/browser-print.html#browser-print" target="_blank">Download the Zebra Browser Print app</a>** for your operating system (Note: You'll need to complete a short survey to access the download).
 
    ![Zebra Survey](/assets/img/zebra_survey.png)
 
@@ -56,7 +56,7 @@ moments).
 
 ## 🏷️ **Printing Labels from REDCap**
 
-1. Navigate to an event on a record in REDCap where tube labels need to be printed (the field should contain the `@TUBE-LABEL-GENERATOR` action tag).
+1. Navigate to an event on a record in REDCap where tube labels need to be printed (the field should contain the `@ZEBRA-LABEL-PRINTER` action tag).
 2. Click the **Generate biospecimen labels** button.
 3. The first time you print, you may be asked to _"Allow_ [_https://redcap.ctsi.ufl.edu/redcap/_](https://redcap.ctsi.ufl.edu/redcap/)_" to access your printer._ Click **Yes** and add it to the accepted hosts list.
 
