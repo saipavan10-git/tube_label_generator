@@ -70,7 +70,7 @@
 	<ItemDef OID="ptid" Name="ptid" DataType="text" Length="999" redcap:Variable="ptid" redcap:FieldType="text">
 		<Question><TranslatedText>Participant ID</TranslatedText></Question>
 	</ItemDef>
-	<ItemDef OID="visit_num" Name="visit_num" DataType="text" Length="999" redcap:Variable="visit_num" redcap:FieldType="text" redcap:FieldAnnotation="@TUBE-LABEL-GENERATOR">
+	<ItemDef OID="visit_num" Name="visit_num" DataType="text" Length="999" redcap:Variable="visit_num" redcap:FieldType="text" redcap:FieldAnnotation="@ZEBRA-LABEL-PRINTER">
 		<Question><TranslatedText>Visit Number</TranslatedText></Question>
 	</ItemDef>
 	<ItemDef OID="header_complete" Name="header_complete" DataType="text" Length="1" redcap:Variable="header_complete" redcap:FieldType="select" redcap:SectionHeader="Form Status">
