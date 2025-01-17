@@ -1,6 +1,6 @@
 <?php
 
-namespace TLG\ExternalModule;
+namespace RZLP\ExternalModule;
 
 use ExternalModules\AbstractExternalModule;
 use REDCap;
@@ -31,7 +31,7 @@ class ExternalModule extends AbstractExternalModule
 
     const DEFAULT_INPUT_BASE = 10;
     const DEFAULT_OUTPUT_BASE = 16;
-    const TUBEL_LABEL_GEN_TAG = "@TUBE-LABEL-GENERATOR";
+    const ZEBRA_LABEL_PRINTER_TAG = "@ZEBRA-LABEL-PRINTER";
     const PTID_FIELD = "ptid_field";
     const VISIT_NUM_FIELD = "visit_num_field";
 
@@ -77,15 +77,15 @@ class ExternalModule extends AbstractExternalModule
         if (Validate::pageIs(Page::ONLINE_DESIGNER) && $project_id) {
             // Append the action tag in the designer view
             $this->initializeJavascriptModuleObject();
-            $this->tt_addToJavascriptModuleObject('tubeLabelGenTag', self::TUBEL_LABEL_GEN_TAG);
+            $this->tt_addToJavascriptModuleObject('zebraLabelGenTag', self::ZEBRA_LABEL_PRINTER_TAG);
             $this->includeJs('js/addActionTag.js');
         } else if (Validate::pageIsIn(array(Page::DATA_ENTRY, Page::SURVEY, Page::SURVEY_THEME)) && isset($_GET['id'])) {
             // Handle the logic of the action tag on data entry
             global $Proj;
             $instrument = $_GET['page'];
-            $tubeLabelGenFields = [];
+            $zebraLabelGenFields = [];
 
-            // Iterate through all fields and search for fields with @TUBE-LABEL-GENERATOR tags and add them
+            // Iterate through all fields and search for fields with @ZEBRA-LABEL-PRINTER tags and add them
             // to an array to pass to JS to handle. Note: although all fields with the tag are checked only
             // the first field will have the button appended to it.
             foreach (array_keys($Proj->forms[$instrument]['fields']) as $field_name) {
@@ -93,23 +93,23 @@ class ExternalModule extends AbstractExternalModule
                 if ($this->isXTypeField($field)) {
                     $action_tags = $field['misc'];
 
-                    if ($this->containsTag(self::TUBEL_LABEL_GEN_TAG, $action_tags)) {
-                        array_push($tubeLabelGenFields, $field_name);
+                    if ($this->containsTag(self::ZEBRA_LABEL_PRINTER_TAG, $action_tags)) {
+                        array_push($zebraLabelGenFields, $field_name);
                     }
                 }
             }
 
-            if (!empty($tubeLabelGenFields)) {
+            if (!empty($zebraLabelGenFields)) {
                 $this->initializeJavascriptModuleObject();
-                $emData = ["tagId" => self::TUBEL_LABEL_GEN_TAG, "hasMultipleTags" => count($tubeLabelGenFields) > 1, "tubeLabelGenFieldId" => $tubeLabelGenFields[0], "ptidFieldId" => $this->getProjectSetting(self::PTID_FIELD), "visitNumFieldId" => $this->getProjectSetting(self::VISIT_NUM_FIELD)];
+                $emData = ["tagId" => self::ZEBRA_LABEL_PRINTER_TAG, "hasMultipleTags" => count($zebraLabelGenFields) > 1, "zebraLabelGenFieldId" => $zebraLabelGenFields[0], "ptidFieldId" => $this->getProjectSetting(self::PTID_FIELD), "visitNumFieldId" => $this->getProjectSetting(self::VISIT_NUM_FIELD)];
                 $this->tt_addToJavascriptModuleObject('emData', $emData);
                 $this->includeJs('js/generateTubeLabels.bundle.js');
             }
 
             // Add the help page link to the javascript object
             $this->initializeJavascriptModuleObject();
-            $tubeLabelPrintHelpUrl = $this->getUrl("assets/printing_help.md");
-            $this->tt_addToJavascriptModuleObject('tubeLabelPrintHelpUrl', $tubeLabelPrintHelpUrl);
+            $zebraLabelPrintHelpUrl = $this->getUrl("assets/printing_help.md");
+            $this->tt_addToJavascriptModuleObject('zebraLabelPrintHelpUrl', $zebraLabelPrintHelpUrl);
             // Include css for the module
             $this->includeCss("assets/module.css");
         }
