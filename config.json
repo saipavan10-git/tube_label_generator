@@ -1,7 +1,7 @@
 {
     "name": "REDCap Zebra Label Printer",
     "description": "Module description",
-    "namespace": "TLG\\ExternalModule",
+    "namespace": "RZLP\\ExternalModule",
     "framework-version": 15,
     "authors": [
         {
