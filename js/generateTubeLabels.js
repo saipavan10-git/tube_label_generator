@@ -1,24 +1,24 @@
-const TLG = ExternalModules.TLG.ExternalModule;
+const RZLP = ExternalModules.RZLP.ExternalModule;
 import ZebraBrowserPrintWrapper from 'zebra-browser-print-wrapper-v2';
 
 
 $(document).ready(function () {
-    const module = TLG;
+    const module = RZLP;
     const GEN_LABEL_BUTTON_ID = 'gen-bio-labels';
     const GEN_HELP_BUTTON_ID = 'help-bio-labels';
-    const { tagId, hasMultipleTags, tubeLabelGenFieldId, ptidFieldId, visitNumFieldId } = module.tt('emData');
-    const tubeLabelPrintHelpUrl = module.tt('tubeLabelPrintHelpUrl')
+    const { tagId, hasMultipleTags, zebraLabelGenFieldId, ptidFieldId, visitNumFieldId } = module.tt('emData');
+    const zebraLabelPrintHelpUrl = module.tt('zebraLabelPrintHelpUrl')
 
     if (hasMultipleTags) {
         alert(`Multiple fields on this form have the ${tagId} tag. The button will only be applied to the first field.`);
     }
 
-    const $tubeLabelGenTd = $(`#${tubeLabelGenFieldId}-tr > td:nth-child(2)`);
+    const $zebraLabelGenTd = $(`#${zebraLabelGenFieldId}-tr > td:nth-child(2)`);
     const $ptidInputField = $(`#${ptidFieldId}-tr td:nth-child(2) input`);
     const $visitNumInputField = $(`#${visitNumFieldId}-tr td:nth-child(2) input`);
 
     // Append the "Generate biospecimen labels" button
-    $tubeLabelGenTd.append(
+    $zebraLabelGenTd.append(
         $('<button />')
             .html('Generate biospecimen labels')
             .attr({
@@ -30,8 +30,8 @@ $(document).ready(function () {
             .prop('disabled', true)
     );
 
-    // Append the "Tube Label Generator help icon"
-    $tubeLabelGenTd.append(
+    // Append the "REDCap Zebra Label Printer help icon"
+    $zebraLabelGenTd.append(
         $('<i />')
             .addClass('fas fa-question-circle')
             .attr({
@@ -54,7 +54,7 @@ $(document).ready(function () {
             .attr('id', 'helpOverlay')
             .html(`<div id="overlayContent">
             <button id="closeOverlay"><i class="fa-duotone fa-solid fa-circle-xmark"></i></button>
-            <iframe src="${tubeLabelPrintHelpUrl}" width="100%" height="100%" frameborder="0"></iframe>
+            <iframe src="${zebraLabelPrintHelpUrl}" width="100%" height="100%" frameborder="0"></iframe>
             </div>
         `);
 
@@ -110,7 +110,7 @@ $(document).ready(function () {
             $genLabelButton.prop('disabled', true).text('Generating... ').append('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
 
             // Make an ajax call to generate labels
-            const response = await TLG.ajax("generateTubeLabels", { ptid, visit_num: visitNum });
+            const response = await RZLP.ajax("generateTubeLabels", { ptid, visit_num: visitNum });
             const labels = JSON.parse(response);
             const zplLabels = labels.map(item => generateZplLabel(item.ptid, item.type, item.barcode_str));
             const zplSheet = zplLabels.join('');

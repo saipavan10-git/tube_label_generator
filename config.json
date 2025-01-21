@@ -1,7 +1,7 @@
 {
-    "name": "Tube Label Generator",
+    "name": "REDCap Zebra Label Printer",
     "description": "Module description",
-    "namespace": "TLG\\ExternalModule",
+    "namespace": "RZLP\\ExternalModule",
     "framework-version": 15,
     "authors": [
         {
@@ -43,7 +43,7 @@
     "links": {
         "project": [
             {
-                "name": "Tube Label Generator Help",
+                "name": "REDCap Zebra Label Printer Help",
                 "icon": "fas fa-circle-info",
                 "url": "help.php",
                 "show-header-and-footer": true
