@@ -1,4 +1,4 @@
-const TLG = ExternalModules.TLG.ExternalModule;
+const RZLP = ExternalModules.RZLP.ExternalModule;
 
 $(document).ready(function () {
     if ($('#div_field_annotation').length === 0) {
@@ -8,24 +8,27 @@ $(document).ready(function () {
     // When the edit field dialog is opened
     $('body').on('dialogopen', function (event, ui) {
         let $popup = $(event.target);
-        let module = TLG;
-        let tubeLabelGenTag = module.tt('tubeLabelGenTag');
+        let module = RZLP;
+        let zebraLabelGenTag = module.tt('zebraLabelGenTag');
+        
 
         // find the position
         var result = $popup.find('tr td.nowrap:nth-child(2)').filter(function(index, element) { 
-            var result = $(element).text() > tubeLabelGenTag;
+            var result = $(element).text() > zebraLabelGenTag;
             if (result) {
                 return result;
             }
         });
         
-        if (result.length < 1) return;
-
+        if (result.length < 1){
+            // If the marker element is not found, use the first element
+            result = $popup.find('tr td.nowrap:nth-child(2)');
+        }
         let markerElement = $(result[0]).text();
 
         // Add the action tag
         const tagDescription = 'Adds a "Generate biospecimen labels" button to be displayed on the field. If multiple tags are assigned on a form only the first field will have the button applied.';
-        prependActionTag($popup, markerElement, tubeLabelGenTag, tagDescription);
+        prependActionTag($popup, markerElement, zebraLabelGenTag, tagDescription);
     });
 
     var prependActionTag = function (container, markerElement, tagName, tagDescription) {
@@ -43,7 +46,7 @@ $(document).ready(function () {
 
         // Create the help text
         var descr = $('<div></div>')
-            .addClass('tubelabelgen-container')
+            .addClass('zebralabelgen-container')
             .html(tagDescription);
 
         // Creating a new action tag row.

@@ -1,8 +1,8 @@
-# Tube Label Generator
+# REDCap Zebra Label Printer
 
 [![DOI](svg)](doi)
 
-Tube Label Generator external module extends REDCap to print labels to Zebra printers using data from a REDCap record, a ZPL layout, and printing plan. The first version of Tube Label Generator has the ZPL layout and print plan hard coded into the module. Future versions will provide more configurability.
+REDCap Zebra Label Printer external module extends REDCap to print labels to Zebra printers using data from a REDCap record, a ZPL layout, and printing plan. The first version of REDCap Zebra Label Printer has the ZPL layout and print plan hard coded into the module. Future versions will provide more configurability.
 
 ## Prerequisites
  - REDCap >= 14.0.2
@@ -16,10 +16,10 @@ Tube Label Generator external module extends REDCap to print labels to Zebra pri
 The module is not yet in the VUMC's REDCap Repo. All installation must be done manually.
 
 ## Manual Installation
-- Clone this repo into to `<redcap-root>/modules/tube_label_generator_v0.0.0`.
+- Clone this repo into to `<redcap-root>/modules/redcap_zebra_label_printer_v0.0.0`.
 
 ## Introduction
-The __Tube Label Generator__ external module prints a preprogrammed layout of 23 labels onto __DFP-103 Cryogenic Labels__. The layout is designed to facilitate blood draw and processing for sites within the 1Florida Alzheimer's Disease Research Center. It has multiple labels each for serum, plasma, paxgene, buffy coat, and blood. The module prints this layout on each label.
+The __REDCap Zebra Label Printer__ external module prints a preprogrammed layout of 23 labels onto __DFP-103 Cryogenic Labels__. The layout is designed to facilitate blood draw and processing for sites within the 1Florida Alzheimer's Disease Research Center. It has multiple labels each for serum, plasma, paxgene, buffy coat, and blood. The module prints this layout on each label.
 
 > ![](./img/DFP-103_image.png) 
 
@@ -27,11 +27,11 @@ The labels are printed in a long strip.
 
 > ![](./img/DFP-103_sample_6_labels.png)
 
-The module adds a button under REDCap form field to allow printing of a 23-label set for that record and event. The `@TUBE-LABEL-GENERATOR` action tag positions the button under any field where it is used.
+The module adds a button under REDCap form field to allow printing of a 23-label set for that record and event. The `@ZEBRA-LABEL-PRINTER` action tag positions the button under any field where it is used.
 
 > ![](./img/gen_label_button.png)
 
-__Tube Label Generator__ interacts with Zebra's Browser Print software to send ZPL files to a pre-selected, locally-attached printer. 
+__REDCap Zebra Label Printer__ interacts with Zebra's Browser Print software to send ZPL files to a pre-selected, locally-attached printer.
 
 ## Installation and setup
 
@@ -39,11 +39,11 @@ To use this module, get a Zebra printer and labels, then follow the steps here.
 
 ### REDCap setup
 
-1. Install the module into your REDCap system by cloning this repo into to `<redcap-root>/modules/tube_label_generator_vN.M.O`, where "N.M.O" is the version of the module you are installing.
+1. Install the module into your REDCap system by cloning this repo into to `<redcap-root>/modules/redcap_zebra_label_printer_vN.M.O`, where "N.M.O" is the version of the module you are installing.
 2. Enable the module in the REDCap Control Center.
-3. Enable the module in a REDCap project. If you need a sample project, there is one available in the [examples](./examples/) folder in the repo on [Github](https://github.com/ctsit/tube_label_generator).
-4. Add the `@TUBE-LABEL-GENERATOR` action tag to a field in your REDCap project. Note: this is already done in the example project.
-5. Open the form that has the field of interest and verify you can see the _Generate Biospecimen Labels_ button. 
+3. Enable the module in a REDCap project. If you need a sample project, there is one available in the [examples](./examples/) folder in the repo on [Github](https://github.com/ctsit/redcap_zebra_label_printer).
+4. Add the `@ZEBRA-LABEL-PRINTER` action tag to a field in your REDCap project. Note: this is already done in the example project.
+5. Open the form that has the field of interest and verify you can see the _Generate Biospecimen Labels_ button.
 6. Press the _?_ button to the right of _Generate Biospecimen Labels_ button. You'll need this help in the steps below.
 
 ### Module Configuration
@@ -53,7 +53,7 @@ You will need to configure the module for your project. At a minimum you need to
 - **Input Base**: The numeric base system of your input, default is 10
 - **Output Base**: Default value is 16, but up to 36, note that you will need to use an even number for the [checksum algorithm to work](https://en.wikipedia.org/wiki/Luhn_mod_N_algorithm#Limitation)
 - **Subject ID field**: The field that contains the record identifier.
-- **Visit number field**: The field that contains the visit number. 
+- **Visit number field**: The field that contains the visit number.
 
 ### Printer setup
 
