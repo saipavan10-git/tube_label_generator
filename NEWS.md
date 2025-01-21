@@ -1,3 +1,6 @@
+# redcap_zebra_label_printer 0.3.0 (released 2025-01-21)
+- Rename module to redcap_zebra_label_printer (@saipavan10-git, #20, #21)
+
 # tube_label_generator 0.2.1 (released 2024-10-30)
 - Rewrite README for current module features (@pbchase, @saipavan10-git, #19)
 
