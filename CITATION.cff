@@ -1,0 +1,64 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: REDCap Zebra Label Printer
+message:
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - family-names: Chase
+    given-names: Philip B
+    email: pbc@ufl.edu
+    affiliation: University of Florida
+    orcid: https://orcid.org/0000-0002-5318-9420
+  - family-names: Chesney
+    given-names: Kyle
+    affiliation: University of Florida
+    orcid: https://orcid.org/0000-0002-0479-7251
+  - family-names: Stoffs
+    given-names: Taryn L
+    email: tls@ufl.edu
+    affiliation: University of Florida
+    orcid: https://orcid.org/0000-0002-0830-8179
+  - family-names: Bentz
+    given-names: Michael
+    affiliation: University of Florida
+    orcid: https://orcid.org/0000-0002-5790-4268
+  - family-names: Sai Pavan
+    given-names: Kamma
+    email: saipavankamma@ufl.edu
+    affiliation: University of Florida
+    orcid: https://orcid.org/0009-0004-4619-0409
+  - family-names: Barnes
+    given-names: Christopher P
+    email: cpb@ufl.edu
+    affiliation: University of Florida
+    orcid: https://orcid.org/0000-0001-7114-1992
+repository-code:
+  https://github.com/ctsit/redcap_zebra_label_printer
+url:
+  https://github.com/ctsit/redcap_zebra_label_printer
+abstract:
+  REDCap Zebra Label Printer is a REDCap external module that
+  extends REDCap to print labels to Zebra printers using data
+  from a REDCap record, a ZPL layout, and a printing plan. The
+  first version of the module has the ZPL layout and print 
+  plan hard-coded into it. Future versions will provide more
+  configurability.
+keywords:
+  - redcap
+  - clinical science
+  - data management
+  - zebra printer
+  - biospecimen
+  - label printing
+  - "redcap repo"
+  - "redcap external module"
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.15185893
+license: Apache-2.0
+version: 0.3.0
+date-released: '2025-01-21'
